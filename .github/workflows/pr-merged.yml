@@ -10,7 +10,7 @@ env:
   LANG: en_US.UTF-8
 jobs:
   create_pr:
-    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'refs/heads/release/v')
+    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'release/v')
     runs-on: ubuntu-latest
     steps:
       - run: echo "PR was merged"

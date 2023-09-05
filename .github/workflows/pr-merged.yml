@@ -4,14 +4,14 @@ on:
     types:
       - closed
     branches:
-      - release/v*
+      - main
 env:
   LC_ALL: en_US.UTF-8
   LANG: en_US.UTF-8
 jobs:
   create_pr:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'refs/heads/release/v')
     runs-on: ubuntu-latest
     steps:
       - run: echo "PR was merged"
-      - run: echo ${{ toJson(github) }}
+      - run: echo '${{ toJson(github) }}'
